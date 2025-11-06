@@ -1,15 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import { GlobalStyle } from './styles/globalStyles'
-import App from './App.jsx'
-import './index.css'
+function Main({ children }) {
+  return (
+    <main className="main-container">
+      {children}
+    </main>
+  );
+}
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <GlobalStyle />
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-)
+export default Main;
