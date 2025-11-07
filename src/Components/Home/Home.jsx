@@ -1,5 +1,5 @@
-import { useRestaurants } from '../../../hooks/useRestaurants';
-import { useCart } from '../../context/CartContext';
+import { useRestaurants } from '../../Hooks/useRestaurants';
+import { useCart } from '../../Context/CartContext';
 import './Home.css';
 
 function Home({ onSelectRestaurant }) {
