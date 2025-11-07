@@ -1,4 +1,4 @@
-import { useRestaurants } from '../../Hooks/useRestaurants';
+import { useRestaurants } from '../../Hooks/UseRestaurants';
 import { useCart } from '../../Context/CartContext';
 import './Home.css';
 
