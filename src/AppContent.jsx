@@ -1,10 +1,11 @@
 import { useState } from 'react';
-
-import Home from './Components/Home/Home';          
-import Restaurant from './Components/Restaurant/Restaurant';  
-import Cart from './Components/Cart/Cart';                   
+import Home from './Components/Home/Home';
+import Restaurant from './Components/Restaurant/Restaurant';
+import Cart from './Components/Cart/Cart';
+import Delivery from './pages/Delivery';
 import Payment from './pages/Payment';
 import Confirmation from './pages/Confirmation';
+
 function AppContent() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
@@ -51,9 +52,9 @@ function AppContent() {
 
   return (
     <div className="app">
-      <Main>
+      <div className="main-container">
         {renderPage()}
-      </Main>
+      </div>
     </div>
   );
 }
