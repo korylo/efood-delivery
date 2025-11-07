@@ -1,12 +1,23 @@
-import { useRestaurants } from '../../Hooks/UseRestaurants';
-import { useCart } from '../../Context/CartContext';
+import { useState, useEffect } from 'react';
 import './Home.css';
 
 function Home({ onSelectRestaurant }) {
-  const { restaurants, loading, error } = useRestaurants();
-  const { cart } = useCart();
+  const [restaurants, setRestaurants] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const totalCartItems = cart.length;
+  // Buscar restaurantes diretamente - SEM HOOKS
+  useEffect(() => {
+    fetch('https://api-ebac.vercel.app/api/efood/restaurantes')
+      .then(response => response.json())
+      .then(data => {
+        setRestaurants(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Erro:', error);
+        setLoading(false);
+      });
+  }, []);
 
   if (loading) {
     return (
@@ -16,24 +27,11 @@ function Home({ onSelectRestaurant }) {
     );
   }
 
-  if (error) {
-    return (
-      <div className="error-page">
-        <p>Erro ao carregar restaurantes: {error}</p>
-      </div>
-    );
-  }
-
   return (
     <div className="home">
       <header className="header">
         <div className="header-top">
           <h1 className="logo">eFood</h1>
-          {totalCartItems > 0 && (
-            <div className="header-cart-count">
-              🛒 {totalCartItems} {totalCartItems === 1 ? 'item' : 'itens'}
-            </div>
-          )}
         </div>
         <p className="tagline">Viva experiências gastronômicas no conforto da sua casa</p>
       </header>
