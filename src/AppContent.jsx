@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import Main from './Main';
-import Home from './components/Home/Home';
-import Restaurant from './components/Restaurant/Restaurant';
-import Cart from './components/Cart/Cart';
-import Delivery from './pages/Delivery';
+import Home from './Components/Home/Home';          
+import Restaurant from './Components/Restaurant/Restaurant';  
+import Cart from './Components/Cart/Cart';                   
 import Payment from './pages/Payment';
 import Confirmation from './pages/Confirmation';
-
 function AppContent() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
